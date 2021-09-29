@@ -1,34 +1,32 @@
-<html>
-    <head>
-        <title>Simple Interest Calculator</title>
-<script>
 function compute()
 {
-  var  principal = document.getElementById("principal").value;
- var rate=document.getElementById("rate").value;
-  var years = document.getElementById("years").value;
- interest=document.getElementById("interest").value;
- interest.innerText="The interest is " + (principal*years*rate/100);
- var year=new Date().getFullYear()+parseInt(years);
+    if (checkPrincipal() == false) {
+        return;
+    }
+    var principal = document.getElementById("principal").value;
+    var rate = document.getElementById("rate").value;
+    var years = document.getElementById("years").value;
+    
+    var interest = principal * years * rate / 100;
 
+    var year = new Date().getFullYear() + parseInt(years);
+
+    document.getElementById("result").innerHTML="If you deposit \<mark\>"+principal+"\</mark\>,\<br\>at an interest rate of \<mark\>"+rate+"%\</mark\>.\<br\>You will receive an amount of \<mark\>"+interest+"\</mark\>,\<br\>in the year \<mark\>"+year+"\</mark\>\<br\>\<br\>"
 }
-</script>
-</head>
-<body>
-    <h1>Simple Interest Calculator</h1>
 
-    Amount: <input id="principal"><br/>
-    Rate: <input id="rate"><br/>
-    No.of Years: <input  id="years"><br/>
-    <button onclick="compute()">compute interest</button>
-    <p id="interest"></p>
+function updateRate()
+{
+    var rateval = document.getElementById("rate").value;
+    document.getElementById("rate_val").innerHTML = rateval;
+}
 
-    <script>
-        function updateRate(rateval){
-            var rateval=document.getElementById("rate").value;
-            document.getElementById("rate_val").innerText=rateval;
-        }
-    </script>
-
-</body>
-</html>
+function checkPrincipal()
+{
+    var p = document.getElementById("principal");
+    if (p.value <= 0) {
+        alert("Enter a positive number");
+        document.getElementById("principal").focus();
+        return false;
+    }
+    return true;
+}
