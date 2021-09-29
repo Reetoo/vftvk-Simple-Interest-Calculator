@@ -1,14 +1,34 @@
-body {background-color:black;
-font-family:aerial;
-color:white;}
-h1{color:grey;
-font-family:verdana;}
+body {
+    background-color:black;
+    font-family:arial;
+    color:white;
+}
 
-.maindiv{
+h1 {
+    color:grey;
+    font-family:verdana;
+}
+
+.tab1 {
+    display: inline-block;
+    margin-left: 70px;
+}
+
+.tab2 {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.tab3 {
+    display: inline-block;
+    margin-left: 40px;
+}
+
+.maindiv {
     background-color:white;
-    width:300px;
+    color:black;
+    width:500px;
     padding:20px;
-    text-align:center;
     border-radius:25px;
-    text-align:center;
+    margin: 0 auto;
 }
